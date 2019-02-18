@@ -26,11 +26,11 @@ echo "\"!|/\'\"" . "<br>";
 define("DRAWINGS", 80);
 define("MARKERS", 23);
 define("CRAYONS", 40);
-define("PAINTS", constant('DRAWINGS') - constant('MARKERS') - constant('CRAYONS'));
-echo "На школьной выставке " . constant('DRAWINGS') . " рисунков.
- " . constant('MARKERS') . " из них выполнены фломастерами,
-  " . constant('CRAYONS') . " карандашами,
-  а остальные — " . constant('PAINTS') . " красками<br>";
+$paints = DRAWINGS - MARKERS - CRAYONS;
+echo "На школьной выставке " . DRAWINGS . " рисунков.
+ " . MARKERS . " из них выполнены фломастерами,
+  " . CRAYONS . " карандашами,
+  а остальные — " . $paints . " красками<br>";
 
 //task#3
 $age = 80;
@@ -71,8 +71,8 @@ $bmw = ['model'=>'X5','speed'=>120,'doors'=>5,'year'=>2015];
 $toyota = ['model'=>'supra','speed'=>120,'doors'=>5,'year'=>2015];
 $opel = ['model'=>'astra','speed'=>120,'doors'=>5,'year'=>2015];
 $cars = ['bmw'=>$bmw,'toyota'=>$toyota,'opel'=>$opel];
-foreach ($cars as $key => $car) {
-    echo 'CAR '. $key.'<br>';
+foreach ($cars as $brand => $car) {
+    echo 'CAR '. $brand.'<br>';
     echo $car['model'].' '.$car['speed'].' '.$car['doors'].' '.$car['year'].'<br>';
 
 }
@@ -89,13 +89,13 @@ for ($row=1; $row <= 10; $row++) {
     echo "<tr>";
     echo "<td>$row</td>";
     for ($col=1; $col <= 10; $col++) {
-        $p = $col * $row;
+        $value_of_cell = $col * $row;
         if ($col % 2 === 0 && $row % 2 === 0) {
-            echo "<td>($p)</td>";
+            echo "<td>($value_of_cell)</td>";
         } elseif ($col % 2 !== 0 && $row % 2 !== 0) {
-            echo "<td>[$p]</td>";
+            echo "<td>[$value_of_cell]</td>";
         } else {
-            echo "<td>$p</td>";
+            echo "<td>$value_of_cell</td>";
         }
     }
     echo "</tr>";
